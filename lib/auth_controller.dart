@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:health/pages/home_page.dart';
+import 'package:health/pages/navigation_bar/home_page.dart';
 import 'package:health/pages/login_page.dart';
 
 class AuthController extends GetxController {

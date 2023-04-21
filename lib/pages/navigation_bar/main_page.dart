@@ -1,56 +1,13 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:health/auth_controller.dart';
 
-class HomePage extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const Text(
-          'Pink Alert',
-          style: TextStyle(
-              color: Colors.pinkAccent,
-              fontSize: 30,
-              fontWeight: FontWeight.bold),
-        ),
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.account_circle,
-                size: 40,
-                color: Colors.black,
-              )),
-        ),
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-          color: Colors.deepPurple.shade300,
-          backgroundColor: Colors.white,
-          items: [
-            const Icon(
-              Icons.chat_rounded,
-              color: Colors.white,
-              size: 30,
-            ),
-            const Icon(
-              Icons.notifications,
-              color: Colors.white,
-              size: 30,
-            ),
-            const Icon(
-              Icons.location_on,
-              color: Colors.white,
-              size: 30,
-            )
-          ]),
       body: Center(
         child: Column(
           children: [
