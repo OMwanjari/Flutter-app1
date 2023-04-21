@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +45,14 @@ class AuthController extends GetxController {
           messageText:
               Text(e.toString(), style: const TextStyle(color: Colors.white)));
     }
+  }
+
+  Future<void> adduserDetail(String name, String phone, String email) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'Name': name,
+      'Phone no': phone,
+      'Email': email,
+    });
   }
 
   void login(String email, password) async {

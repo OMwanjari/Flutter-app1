@@ -13,7 +13,6 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  String name = "";
   bool changeButton = false;
 
   final _formkey = GlobalKey<FormState>();
@@ -25,6 +24,8 @@ class _SigninPageState extends State<SigninPage> {
 
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
+    var nameController = TextEditingController();
+    var phoneController = TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -33,7 +34,7 @@ class _SigninPageState extends State<SigninPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             child: Container(
-              height: 0.9 * h,
+              height: 0.8 * h,
               width: 0.9 * w,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -65,7 +66,7 @@ class _SigninPageState extends State<SigninPage> {
                     alignment: Alignment.bottomCenter,
                   ),
                   Container(
-                    height: 0.67 * h,
+                    height: 0.57 * h,
                     width: 0.9 * w,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
@@ -77,7 +78,7 @@ class _SigninPageState extends State<SigninPage> {
                         height: 35,
                       ),
                       Text(
-                        "H e l l o   $name",
+                        "H e l l o ",
                         style: const TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -96,6 +97,7 @@ class _SigninPageState extends State<SigninPage> {
                               child: SizedBox(
                                 width: 0.7 * w,
                                 child: TextFormField(
+                                  controller: nameController,
                                   decoration: InputDecoration(
                                       hintText: "Enter Username",
                                       hintStyle: TextStyle(fontSize: 20),
@@ -119,9 +121,39 @@ class _SigninPageState extends State<SigninPage> {
                                     }
                                     return null;
                                   },
-                                  onChanged: (value) {
-                                    name = value;
-                                    setState(() {});
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            Container(
+                              child: SizedBox(
+                                width: 0.7 * w,
+                                child: TextFormField(
+                                  controller: phoneController,
+                                  decoration: InputDecoration(
+                                      hintText: "Enter Phone no",
+                                      hintStyle: TextStyle(fontSize: 20),
+                                      prefixIcon: const Icon(
+                                        Icons.phone_android,
+                                        color: Colors.pink,
+                                        size: 20,
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      hoverColor: const Color.fromARGB(
+                                          255, 215, 245, 255),
+                                      labelText: "Phone no",
+                                      labelStyle: const TextStyle(fontSize: 20),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30))),
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return "Phone cannot be empty";
+                                    }
+                                    return null;
                                   },
                                 ),
                               ),
@@ -210,13 +242,13 @@ class _SigninPageState extends State<SigninPage> {
                             setState(() {
                               changeButton = true;
                             });
-                            // await Future.delayed(const Duration(seconds: 1));
                             AuthController.instance.register(
                                 emailController.text.trim(),
                                 passwordController.text.trim());
-                            /* setState(() {
-                              changeButton = false;
-                            });*/
+                            await AuthController.instance.adduserDetail(
+                                nameController.text.trim(),
+                                phoneController.text.trim(),
+                                emailController.text.trim());
                           }
                         },
                         child: AnimatedContainer(
