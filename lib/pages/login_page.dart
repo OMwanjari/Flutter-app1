@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 35,
                         ),
                         const Text(
-                          "Pink Alert",
+                          "Kawach",
                           style: TextStyle(
                             fontSize: 35,
                             fontWeight: FontWeight.bold,
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        const Text(
                           "Women Safety & SOS Alert App",
                           style: TextStyle(
                             fontSize: 15,
@@ -107,69 +107,67 @@ class _LoginPageState extends State<LoginPage> {
                               vertical: 16.0, horizontal: 20.0),
                           child: Column(
                             children: [
-                              Container(
-                                child: SizedBox(
-                                  width: 0.7 * w,
-                                  child: TextFormField(
-                                      controller: emailController,
-                                      decoration: InputDecoration(
-                                          hintText: "Enter Email",
-                                          hintStyle: TextStyle(fontSize: 20),
-                                          prefixIcon: const Icon(
-                                            Icons.email,
-                                            color: Colors.pink,
-                                            size: 20,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          labelText: "Email",
-                                          labelStyle:
-                                              const TextStyle(fontSize: 20),
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30))),
-                                      validator: (value) {
-                                        if (value!.isEmpty) {
-                                          return "Email cannot be empty";
-                                        }
-                                        return null;
-                                      }),
-                                ),
+                              SizedBox(
+                                width: 0.7 * w,
+                                child: TextFormField(
+                                    controller: emailController,
+                                    decoration: InputDecoration(
+                                        hintText: "Enter Email",
+                                        hintStyle:
+                                            const TextStyle(fontSize: 20),
+                                        prefixIcon: const Icon(
+                                          Icons.email,
+                                          color: Colors.pink,
+                                          size: 20,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        labelText: "Email",
+                                        labelStyle:
+                                            const TextStyle(fontSize: 20),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30))),
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "Email cannot be empty";
+                                      }
+                                      return null;
+                                    }),
                               ),
                               const SizedBox(
                                 height: 25,
                               ),
-                              Container(
-                                child: SizedBox(
-                                  width: 0.7 * w,
-                                  child: TextFormField(
-                                      controller: passwordController,
-                                      obscureText: true,
-                                      decoration: InputDecoration(
-                                          hintText: "Enter Password",
-                                          hintStyle: TextStyle(fontSize: 20),
-                                          prefixIcon: const Icon(
-                                            Icons.password,
-                                            color: Colors.pinkAccent,
-                                            size: 20,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          labelText: "Password",
-                                          labelStyle:
-                                              const TextStyle(fontSize: 20),
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30))),
-                                      validator: (value) {
-                                        if (value!.isEmpty) {
-                                          return "password cannot be empty";
-                                        } else if (value.length < 6) {
-                                          return "password must contain 6 letters";
-                                        }
-                                        return null;
-                                      }),
-                                ),
+                              SizedBox(
+                                width: 0.7 * w,
+                                child: TextFormField(
+                                    controller: passwordController,
+                                    obscureText: true,
+                                    decoration: InputDecoration(
+                                        hintText: "Enter Password",
+                                        hintStyle:
+                                            const TextStyle(fontSize: 20),
+                                        prefixIcon: const Icon(
+                                          Icons.password,
+                                          color: Colors.pinkAccent,
+                                          size: 20,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        labelText: "Password",
+                                        labelStyle:
+                                            const TextStyle(fontSize: 20),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30))),
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "password cannot be empty";
+                                      } else if (value.length < 6) {
+                                        return "password must contain 6 letters";
+                                      }
+                                      return null;
+                                    }),
                               ),
                             ],
                           ),
@@ -225,8 +223,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         RichText(
                             text: TextSpan(
-                                text: "Don\'t have an account?",
-                                style: TextStyle(
+                                text: "Don't have an account?",
+                                style: const TextStyle(
                                   fontSize: 15,
                                   color: Colors.black,
                                 ),

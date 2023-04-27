@@ -77,9 +77,9 @@ class _SigninPageState extends State<SigninPage> {
                       const SizedBox(
                         height: 35,
                       ),
-                      Text(
+                      const Text(
                         "H e l l o ",
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -93,16 +93,80 @@ class _SigninPageState extends State<SigninPage> {
                             vertical: 16.0, horizontal: 20.0),
                         child: Column(
                           children: [
-                            Container(
-                              child: SizedBox(
-                                width: 0.7 * w,
-                                child: TextFormField(
-                                  controller: nameController,
+                            SizedBox(
+                              width: 0.7 * w,
+                              child: TextFormField(
+                                controller: nameController,
+                                decoration: InputDecoration(
+                                    hintText: "Enter Username",
+                                    hintStyle: const TextStyle(fontSize: 20),
+                                    prefixIcon: const Icon(
+                                      Icons.account_circle,
+                                      color: Colors.pink,
+                                      size: 20,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hoverColor: const Color.fromARGB(
+                                        255, 215, 245, 255),
+                                    labelText: "Username",
+                                    labelStyle: const TextStyle(fontSize: 20),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30))),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Username cannot be empty";
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            SizedBox(
+                              width: 0.7 * w,
+                              child: TextFormField(
+                                controller: phoneController,
+                                decoration: InputDecoration(
+                                    hintText: "Enter Phone no",
+                                    hintStyle: const TextStyle(fontSize: 20),
+                                    prefixIcon: const Icon(
+                                      Icons.phone_android,
+                                      color: Colors.pink,
+                                      size: 20,
+                                    ),
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hoverColor: const Color.fromARGB(
+                                        255, 215, 245, 255),
+                                    labelText: "Phone no",
+                                    labelStyle: const TextStyle(fontSize: 20),
+                                    border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30))),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Phone cannot be empty";
+                                  }
+                                  return null;
+                                },
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            SizedBox(
+                              width: 0.7 * w,
+                              child: TextFormField(
+                                  controller: passwordController,
+                                  obscureText: true,
                                   decoration: InputDecoration(
-                                      hintText: "Enter Username",
-                                      hintStyle: TextStyle(fontSize: 20),
+                                      hintText: "Enter Password",
+                                      hintStyle: const TextStyle(fontSize: 20),
                                       prefixIcon: const Icon(
-                                        Icons.account_circle,
+                                        Icons.password,
                                         color: Colors.pink,
                                         size: 20,
                                       ),
@@ -110,33 +174,32 @@ class _SigninPageState extends State<SigninPage> {
                                       fillColor: Colors.white,
                                       hoverColor: const Color.fromARGB(
                                           255, 215, 245, 255),
-                                      labelText: "Username",
+                                      labelText: "Password",
                                       labelStyle: const TextStyle(fontSize: 20),
                                       border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(30))),
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return "Username cannot be empty";
+                                      return "password cannot be empty";
+                                    } else if (value.length < 6) {
+                                      return "password must contain 6 letters";
                                     }
                                     return null;
-                                  },
-                                ),
-                              ),
+                                  }),
                             ),
                             const SizedBox(
                               height: 25,
                             ),
-                            Container(
-                              child: SizedBox(
-                                width: 0.7 * w,
-                                child: TextFormField(
-                                  controller: phoneController,
+                            SizedBox(
+                              width: 0.7 * w,
+                              child: TextFormField(
+                                  controller: emailController,
                                   decoration: InputDecoration(
-                                      hintText: "Enter Phone no",
-                                      hintStyle: TextStyle(fontSize: 20),
+                                      hintText: "Enter Email",
+                                      hintStyle: const TextStyle(fontSize: 20),
                                       prefixIcon: const Icon(
-                                        Icons.phone_android,
+                                        Icons.email,
                                         color: Colors.pink,
                                         size: 20,
                                       ),
@@ -144,91 +207,19 @@ class _SigninPageState extends State<SigninPage> {
                                       fillColor: Colors.white,
                                       hoverColor: const Color.fromARGB(
                                           255, 215, 245, 255),
-                                      labelText: "Phone no",
-                                      labelStyle: const TextStyle(fontSize: 20),
+                                      labelText: "Email",
+                                      labelStyle: const TextStyle(
+                                        fontSize: 20,
+                                      ),
                                       border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(30))),
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return "Phone cannot be empty";
+                                      return "Email cannot be empty";
                                     }
                                     return null;
-                                  },
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            Container(
-                              child: SizedBox(
-                                width: 0.7 * w,
-                                child: TextFormField(
-                                    controller: passwordController,
-                                    obscureText: true,
-                                    decoration: InputDecoration(
-                                        hintText: "Enter Password",
-                                        hintStyle: TextStyle(fontSize: 20),
-                                        prefixIcon: const Icon(
-                                          Icons.password,
-                                          color: Colors.pink,
-                                          size: 20,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        hoverColor: const Color.fromARGB(
-                                            255, 215, 245, 255),
-                                        labelText: "Password",
-                                        labelStyle:
-                                            const TextStyle(fontSize: 20),
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30))),
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "password cannot be empty";
-                                      } else if (value.length < 6) {
-                                        return "password must contain 6 letters";
-                                      }
-                                      return null;
-                                    }),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 25,
-                            ),
-                            Container(
-                              child: SizedBox(
-                                width: 0.7 * w,
-                                child: TextFormField(
-                                    controller: emailController,
-                                    decoration: InputDecoration(
-                                        hintText: "Enter Email",
-                                        hintStyle: TextStyle(fontSize: 20),
-                                        prefixIcon: const Icon(
-                                          Icons.email,
-                                          color: Colors.pink,
-                                          size: 20,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        hoverColor: const Color.fromARGB(
-                                            255, 215, 245, 255),
-                                        labelText: "Email",
-                                        labelStyle: const TextStyle(
-                                          fontSize: 20,
-                                        ),
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30))),
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "Email cannot be empty";
-                                      }
-                                      return null;
-                                    }),
-                              ),
+                                  }),
                             )
                           ],
                         ),
@@ -284,7 +275,7 @@ class _SigninPageState extends State<SigninPage> {
                       RichText(
                         text: TextSpan(
                             text: "Have an account ?",
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 15,
                             ),

@@ -36,6 +36,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: null
+  hidden_drawer_menu: ^3.0.1
   lottie: ^2.2.0
 
 dev_dependencies:

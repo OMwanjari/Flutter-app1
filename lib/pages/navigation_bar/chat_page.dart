@@ -5,10 +5,11 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      backgroundColor: Colors.deepPurple[100],
+      body: const Center(
         child: Text(
-          "Chat Page",
+          "Community Page",
           style: TextStyle(fontSize: 60),
         ),
       ),
