@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:health/auth_controller.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -39,9 +38,7 @@ class MainPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {
-                      AuthController.instance.logOut();
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 280,
                       width: 280,
