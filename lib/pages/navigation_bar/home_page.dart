@@ -4,6 +4,8 @@ import 'package:health/pages/navigation_bar/chat_page.dart';
 import 'package:health/pages/navigation_bar/location_page.dart';
 import 'package:health/pages/navigation_bar/main_page.dart';
 
+import '../../auth_controller.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -94,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     title: const Text('Logout', style: TextStyle(fontSize: 20)),
                     onTap: () {
                       // Handle logout logic here
-                      //AuthController.instance.logOut();
+                      AuthController.instance.logOut();
                     },
                   ),
                 )
